@@ -176,7 +176,8 @@ def set_by_naming_series(doctype, fieldname, naming_series, hide_name_field=True
 				ifnull({fieldname}, '')=''""".format(doctype=doctype, fieldname=fieldname))
 
 def get_default_naming_series(doctype):
-	naming_series = frappe.get_meta(doctype).get_field("naming_series").options or ""
+	#naming_series = frappe.get_meta(doctype).get_field("naming_series").options or ""
+	naming_series = ""
 	naming_series = naming_series.split("\n")
 	out = naming_series[0] or (naming_series[1] if len(naming_series) > 1 else None)
 	if out:
